@@ -125,7 +125,11 @@ const FooterA11y = () => {
                   </a>
                 </p>
                 <p>
-                  <a href="tel:+919811744587" className="underline hover:text-black">
+                  <a
+                    href="tel:+919811744587"
+                    aria-label="Call Sprout Research at plus 91 98117 44587"
+                    className="underline hover:text-black"
+                  >
                     +91 98117 44587
                   </a>
                 </p>

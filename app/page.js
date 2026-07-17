@@ -487,7 +487,7 @@ export default function Home() {
                         {/* Retail Option */}
                         <span
                           className={`relative flex-1 text-center text-sm sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'retail' ? 'text-white' : 'text-blue-700'}`}
+                            ${activeSection === 'retail' ? 'text-white' : 'text-gray-900'}`}
                         >
                           Retail
                         </span>
@@ -495,7 +495,7 @@ export default function Home() {
                         {/* Institutional Option */}
                         <span
                           className={`relative flex-1 text-center text-sm sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'institutional' ? 'text-white' : 'text-blue-700'}`}
+                            ${activeSection === 'institutional' ? 'text-white' : 'text-gray-900'}`}
                         >
                           Private Client
                         </span>
@@ -661,7 +661,11 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="font-semibold text-gray-700 block mb-1">Mobile:</span>
-                  <a href="tel:9811744587" className="text-blue-600 hover:text-blue-800 transition-colors">
+                  <a
+                    href="tel:9811744587"
+                    aria-label="Call Principal Officer Shikha Kapur at plus 91 98117 44587"
+                    className="text-blue-700 hover:text-blue-900 transition-colors"
+                  >
                     +91 98117 44587
                   </a>
                 </div>
