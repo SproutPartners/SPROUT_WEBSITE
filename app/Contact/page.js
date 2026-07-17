@@ -180,7 +180,7 @@ export default function Page() {
               {/* Research Analyst Information */}
               <div className="mb-8">
                 <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">Research Analyst Information</h3>
-                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                <div className="space-y-2 text-base sm:text-lg leading-relaxed text-gray-950">
                   <p><span className="font-semibold text-gray-950">Name:</span> Shikha Kapur</p>
                   <p><span className="font-semibold text-gray-950">Proprietor:</span> Sprout Research</p>
                   <p><span className="font-semibold text-gray-950">Trade Name:</span> Sprout Research</p>
@@ -196,7 +196,7 @@ export default function Page() {
               {/* Principal Officer/Grievance Officer/Compliance Officer */}
               <div className="mb-8">
                 <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">Principal Officer/Grievance Officer/Compliance Officer</h3>
-                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                <div className="space-y-2 text-base sm:text-lg leading-relaxed text-gray-950">
                   <p><span className="font-semibold text-gray-950">Name:</span> Shikha Kapur</p>
                   <p><span className="font-semibold text-gray-950">Email:</span> shikha.kapur@gmail.com</p>
                   <p><span className="font-semibold text-gray-950">Mobile:</span> 9811744587</p>
@@ -206,7 +206,7 @@ export default function Page() {
               {/* SEBI Office Details */}
               <div className="mb-8">
                 <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">SEBI Office Details</h3>
-                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                <div className="space-y-2 text-base sm:text-lg leading-relaxed text-gray-950">
                   <p><span className="font-semibold text-gray-950">Address:</span> SEBI Bhavan RKC, Bandra-Kurla Complex, Mumbai - 400051, Maharashtra, India</p>
                   <p>
                     <span className="font-semibold text-gray-950">SEBI Score:</span> 
