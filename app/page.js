@@ -476,26 +476,26 @@ export default function Home() {
                         type="button"
                         aria-label="Toggle between retail and private client services"
                         aria-pressed={activeSection === 'institutional'}
-                        className="relative flex items-center rounded-full border-2 border-gray-500 bg-white p-1 shadow-inner cursor-pointer transition-all duration-300 ease-in-out w-90 h-12"
+                        className="relative flex items-center rounded-full border-2 border-gray-700 bg-white p-1 shadow-inner cursor-pointer transition-all duration-300 ease-in-out w-90 h-14"
                       >
                         {/* Background for the active toggle */}
                         <div
-                          className={`absolute w-1/2 h-10 bg-slate-950 rounded-full shadow-md transform transition-all duration-300 ease-in-out
+                          className={`absolute w-1/2 h-12 rounded-full border border-gray-700 bg-blue-100 shadow-md transform transition-all duration-300 ease-in-out
                             ${activeSection === 'retail' ? 'translate-x-0' : 'translate-x-full'}`}
                         ></div>
 
                         {/* Retail Option */}
                         <span
-                          className={`relative flex-1 text-center text-base sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'retail' ? 'text-white' : 'text-black'}`}
+                          className={`relative flex-1 text-center text-lg sm:text-xl font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
+                            ${activeSection === 'retail' ? 'text-black' : 'text-gray-950'}`}
                         >
                           Retail
                         </span>
 
                         {/* Institutional Option */}
                         <span
-                          className={`relative flex-1 text-center text-base sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'institutional' ? 'text-white' : 'text-black'}`}
+                          className={`relative flex-1 text-center text-lg sm:text-xl font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
+                            ${activeSection === 'institutional' ? 'text-black' : 'text-gray-950'}`}
                         >
                           Private Client
                         </span>
