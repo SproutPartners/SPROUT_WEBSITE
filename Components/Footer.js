@@ -84,14 +84,15 @@ const Footer = () => {
                 Partner with Sprout Research to access quality research opportunities. Our expertise ensures robust risk management, delivering confidence and peace of mind for your financial future.
               </p>
               {/* Social Media Icons */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-4" aria-label="Social media links">
                 <a
                   href="https://x.com/sproutresearch1?s=11"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Sprout Research on X"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                 >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" focusable="false" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
                   </svg>
                 </a>
@@ -99,9 +100,10 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/shikha-kapur-8214167?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Shikha Kapur on LinkedIn"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                 >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" focusable="false" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                   </svg>
                 </a>
@@ -415,37 +417,45 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="mt-8 pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              <a
-                href="/PrivacyPolicy"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
-              >
-                Privacy Policy
-              </a>
-              <span className="text-gray-600">|</span>
-              <a
-                href="/Refund_Cancellation"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
-              >
-                Refund &amp; Cancellation
-              </a>
-              <span className="text-gray-600">|</span>
-              <a
-                href="/Terms"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
-              >
-                Terms & Conditions
-              </a>
-              <span className="text-gray-600">|</span>
-              
+            <nav aria-label="Footer utility links" className="mb-4 md:mb-0">
+              <ul className="flex flex-wrap items-center gap-4">
+                <li>
+                  <a
+                    href="/PrivacyPolicy"
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li aria-hidden="true" className="text-gray-600">|</li>
+                <li>
+                  <a
+                    href="/Refund_Cancellation"
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                  >
+                    Refund &amp; Cancellation
+                  </a>
+                </li>
+                <li aria-hidden="true" className="text-gray-600">|</li>
+                <li>
+                  <a
+                    href="/Terms"
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                  >
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li aria-hidden="true" className="text-gray-600">|</li>
+                <li>
                   <a
                     href="/admin/Insights"
                     className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   >
                     Admin Panel
                   </a>
-
-            </div>
+                </li>
+              </ul>
+            </nav>
 
             <p className="text-gray-600 text-sm">Sprout Research © 2025. All rights reserved.</p>
           </div>
