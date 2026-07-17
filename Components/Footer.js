@@ -197,9 +197,9 @@ const Footer = () => {
                             PCG
                            
                           </Link>
-                           <Link
+                          <Link
                             href="/Research/Retail"
-                            className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black transition-colors duration-200"
+                            className="flex items-center justify-between px-4 py-2 text-base font-medium text-black hover:bg-gray-100 transition-colors duration-200"
                           >
                             Retail
                            
@@ -222,7 +222,7 @@ const Footer = () => {
                       <Link 
                         href="/Research/Retail" 
                         onClick={() => setMobileAboutOpen(false)}
-                        className="block text-gray-600 hover:text-gray-900 transition-colors duration-300 font-medium"
+                        className="block text-base font-medium text-black transition-colors duration-300"
                       >
                        Retail
                       </Link>

@@ -507,7 +507,7 @@ export default function Home() {
                     {activeSection === 'retail' ? (
                       // Retail Content
                       <div className="animate-fade-in">
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                        <h2 className="text-3xl font-semibold text-black mb-4">
                           Retail
                         </h2>
                         <p className="text-gray-600 leading-relaxed mb-4">
