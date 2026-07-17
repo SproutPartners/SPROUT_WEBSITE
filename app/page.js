@@ -471,31 +471,31 @@ export default function Home() {
 
                   {/* Toggle Button Container */}
                   <div className="flex justify-center mb-8">
-                    <button
+                      <button
                         onClick={handleToggle}
                         type="button"
                         aria-label="Toggle between retail and private client services"
                         aria-pressed={activeSection === 'institutional'}
-                        className="relative flex items-center bg-blue-100 rounded-full p-1 shadow-inner cursor-pointer transition-all duration-300 ease-in-out w-90 h-12"
+                        className="relative flex items-center rounded-full border-2 border-gray-500 bg-white p-1 shadow-inner cursor-pointer transition-all duration-300 ease-in-out w-90 h-12"
                       >
                         {/* Background for the active toggle */}
                         <div
-                          className={`absolute w-1/2 h-10 bg-blue-800 rounded-full shadow-md transform transition-all duration-300 ease-in-out
+                          className={`absolute w-1/2 h-10 bg-slate-950 rounded-full shadow-md transform transition-all duration-300 ease-in-out
                             ${activeSection === 'retail' ? 'translate-x-0' : 'translate-x-full'}`}
                         ></div>
 
                         {/* Retail Option */}
                         <span
-                          className={`relative flex-1 text-center text-sm sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'retail' ? 'text-white' : 'text-gray-900'}`}
+                          className={`relative flex-1 text-center text-base sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
+                            ${activeSection === 'retail' ? 'text-white' : 'text-black'}`}
                         >
                           Retail
                         </span>
 
                         {/* Institutional Option */}
                         <span
-                          className={`relative flex-1 text-center text-sm sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
-                            ${activeSection === 'institutional' ? 'text-white' : 'text-gray-900'}`}
+                          className={`relative flex-1 text-center text-base sm:text-lg font-semibold py-2 px-2 sm:px-4 rounded-full transition-colors duration-300 ease-in-out
+                            ${activeSection === 'institutional' ? 'text-white' : 'text-black'}`}
                         >
                           Private Client
                         </span>
