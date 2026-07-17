@@ -50,53 +50,55 @@ export default function ProcutPricing() {
                         {/* Table Content */}
                         <div className="overflow-x-auto">
                             <table className="w-full">
-                                
+                                <caption className="sr-only">
+                                    Product pricing details for Sprout Research Retail subscriptions
+                                </caption>
                                 <tbody>
                                   
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Suitable
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6 text-gray-800 text-sm sm:text-base text-center">
                                             Active Investors
                                         </td>
                                     </tr>
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Numbers of stocks covered
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6 text-gray-800 text-sm sm:text-base text-center">
                                             35-40 stocks annually (approximately 3-4 stock ideas per month)
                                         </td>
                                     </tr>
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Ideas covered
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6 text-gray-800 text-sm sm:text-base text-center">
                                             Long-term picks, Tactical picks, High-risk high-reward picks
                                         </td>
                                     </tr>
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Research notes
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6 text-gray-800 text-sm sm:text-base text-center">
                                             Detailed research note on every recommendation
                                         </td>
                                     </tr>
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Weekend Insights
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6 text-gray-800 text-sm sm:text-base text-center">
                                             Covers macro topics worldwide, channel checks, and sectors in the news
                                         </td>
                                     </tr>
                                     <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Subscription Pricing
-                                        </td>
+                                        </th>
                                         <td className="bg-blue-50 p-4 sm:p-6">
                                             {/* Two Subscription Cards */}
                                             <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-3xl mx-auto">
@@ -152,9 +154,9 @@ export default function ProcutPricing() {
                                         </td>
                                     </tr>
                                      <tr className="border-b border-gray-100">
-                                        <td className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base">
+                                        <th scope="row" className="bg-gray-50 p-4 sm:p-6 font-semibold text-gray-700 text-sm sm:text-base text-left">
                                             Sprout Research Retail Investors
-                                        </td>
+                                        </th>
 
                                         <td className="bg-blue-50 p-4 sm:p-6">
                                             <SubscriptionCards />

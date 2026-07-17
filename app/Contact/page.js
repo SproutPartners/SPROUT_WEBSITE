@@ -164,7 +164,7 @@ export default function Page() {
         {/* Overlay Section */}
         <div className="relative z-10 flex min-h-[120vh] items-center justify-center px-4 py-12 sm:py-16">
           <h1 className="sr-only">Contact Sprout Research</h1>
-          <div className="bg-blue-200/50 backdrop-blur-md rounded-xl p-6 sm:p-8 md:flex md:flex-row flex-col w-full max-w-6xl shadow-2xl min-h-[100vh]">
+          <div className="bg-slate-100/95 backdrop-blur-md rounded-xl p-6 sm:p-8 md:flex md:flex-row flex-col w-full max-w-6xl shadow-2xl min-h-[100vh]">
 
             {/* Left Contact Info */}
             <div className="md:w-1/2 w-full pr-0 md:pr-8 mb-6 md:mb-0 text-black overflow-y-auto max-h-[90vh] md:max-h-none">
@@ -211,7 +211,7 @@ export default function Page() {
                   <p>
                     <span className="font-semibold">SEBI Score:</span> 
                     <a href="https://scores.sebi.gov.in/scores-home" 
-                       className="text-blue-600 hover:text-blue-800 underline ml-1" 
+                       className="text-blue-800 hover:text-blue-950 underline ml-1" 
                        target="_blank" 
                        rel="noopener noreferrer">
                       https://scores.sebi.gov.in/scores-home
@@ -220,7 +220,7 @@ export default function Page() {
                   <p>
                     <span className="font-semibold">Smart ODR:</span> 
                     <a href="https://smartodr.in/login" 
-                       className="text-blue-600 hover:text-blue-800 underline ml-1" 
+                       className="text-blue-800 hover:text-blue-950 underline ml-1" 
                        target="_blank" 
                        rel="noopener noreferrer">
                       https://smartodr.in/login
@@ -253,7 +253,8 @@ export default function Page() {
                 id="contact-first-name"
                 type="text"
                 placeholder="First Name *"
-                className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                autoComplete="given-name"
+                className="w-full p-3 border-2 border-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition"
                 required
                 name="firstName"
                 value={formData.firstName}
@@ -267,7 +268,8 @@ export default function Page() {
                 id="contact-email"
                 type="email"
                 placeholder="Email Address *"
-                className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                autoComplete="email"
+                className="w-full p-3 border-2 border-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition"
                 required
                 name="email"
                 value={formData.email}
@@ -281,7 +283,8 @@ export default function Page() {
                 id="contact-number"
                 type="tel"
                 placeholder="Contact Number *"
-                className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                autoComplete="tel"
+                className="w-full p-3 border-2 border-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition"
                 required
                 name="contact"
                 value={formData.contact}
@@ -344,7 +347,7 @@ export default function Page() {
                 id="contact-message"
                 placeholder="Your Message (Optional)"
                 rows={4}
-                className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                className="w-full p-3 border-2 border-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition"
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}

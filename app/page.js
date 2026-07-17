@@ -480,7 +480,7 @@ export default function Home() {
                       >
                         {/* Background for the active toggle */}
                         <div
-                          className={`absolute w-1/2 h-10 bg-blue-600 rounded-full shadow-md transform transition-all duration-300 ease-in-out
+                          className={`absolute w-1/2 h-10 bg-blue-800 rounded-full shadow-md transform transition-all duration-300 ease-in-out
                             ${activeSection === 'retail' ? 'translate-x-0' : 'translate-x-full'}`}
                         ></div>
 
@@ -507,7 +507,7 @@ export default function Home() {
                     {activeSection === 'retail' ? (
                       // Retail Content
                       <div className="animate-fade-in">
-                        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                        <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                           Retail
                         </h2>
                         <p className="text-gray-600 leading-relaxed mb-4">
