@@ -164,14 +164,14 @@ export default function Page() {
         {/* Overlay Section */}
         <div className="relative z-10 flex min-h-[120vh] items-center justify-center px-4 py-12 sm:py-16">
           <h1 className="sr-only">Contact Sprout Research</h1>
-          <div className="bg-slate-100/95 backdrop-blur-md rounded-xl p-6 sm:p-8 md:flex md:flex-row flex-col w-full max-w-6xl shadow-2xl min-h-[100vh]">
+          <div className="bg-white/95 backdrop-blur-md rounded-xl p-6 sm:p-8 md:flex md:flex-row flex-col w-full max-w-6xl shadow-2xl min-h-[100vh]">
 
             {/* Left Contact Info */}
-            <div className="md:w-1/2 w-full pr-0 md:pr-8 mb-6 md:mb-0 text-black overflow-y-auto max-h-[90vh] md:max-h-none">
-              <h2 className="text-2xl sm:text-4xl md:text-4xl font-bold mb-8 mt-10">Contact Information</h2>
+            <div className="md:w-1/2 w-full pr-0 md:pr-8 mb-6 md:mb-0 text-gray-950 overflow-y-auto max-h-[90vh] md:max-h-none">
+              <h2 className="text-2xl sm:text-4xl md:text-4xl font-bold mb-8 mt-10 text-gray-950">Contact Information</h2>
               
               {/* Basic Contact Details */}
-              <ul className="space-y-4 sm:space-y-6 text-base sm:text-lg mb-8">
+              <ul className="space-y-4 sm:space-y-6 text-base sm:text-lg mb-8 text-gray-950">
                 <li>📞 +91-9811744587 / +91-7838135315</li>
                 <li>📧 sproutresearch.equity@gmail.com</li>
                 <li>📌 A 35 FIRST FLOOR, Chittaranjan Park, NEW DELHI, NATIONAL CAPITAL TERRITORY OF DELHI, 110019</li>
@@ -179,37 +179,37 @@ export default function Page() {
 
               {/* Research Analyst Information */}
               <div className="mb-8">
-                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-800">Research Analyst Information</h3>
-                <div className="space-y-2 text-sm sm:text-base">
-                  <p><span className="font-semibold">Name:</span> Shikha Kapur</p>
-                  <p><span className="font-semibold">Proprietor:</span> Sprout Research</p>
-                  <p><span className="font-semibold">Trade Name:</span> Sprout Research</p>
-                  <p><span className="font-semibold">Type of RA:</span> Proprietorship</p>
-                  <p><span className="font-semibold">Registered Office:</span> A 35 First Floor, Chittaranjan Park, New Delhi, National Capital Territory Of Delhi, 110019</p>
-                  <p><span className="font-semibold">Registration Number:</span> INH000019169</p>
-                  <p><span className="font-semibold">BSE Enlistment Number:</span> 6441</p>
-                  <p><span className="font-semibold">Date of Registration:</span> 23 December 2024</p>
-                  <p><span className="font-semibold">Validity of Registration:</span> Perpetual</p>
+                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">Research Analyst Information</h3>
+                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                  <p><span className="font-semibold text-gray-950">Name:</span> Shikha Kapur</p>
+                  <p><span className="font-semibold text-gray-950">Proprietor:</span> Sprout Research</p>
+                  <p><span className="font-semibold text-gray-950">Trade Name:</span> Sprout Research</p>
+                  <p><span className="font-semibold text-gray-950">Type of RA:</span> Proprietorship</p>
+                  <p><span className="font-semibold text-gray-950">Registered Office:</span> A 35 First Floor, Chittaranjan Park, New Delhi, National Capital Territory Of Delhi, 110019</p>
+                  <p><span className="font-semibold text-gray-950">Registration Number:</span> INH000019169</p>
+                  <p><span className="font-semibold text-gray-950">BSE Enlistment Number:</span> 6441</p>
+                  <p><span className="font-semibold text-gray-950">Date of Registration:</span> 23 December 2024</p>
+                  <p><span className="font-semibold text-gray-950">Validity of Registration:</span> Perpetual</p>
                 </div>
               </div>
 
               {/* Principal Officer/Grievance Officer/Compliance Officer */}
               <div className="mb-8">
-                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-800">Principal Officer/Grievance Officer/Compliance Officer</h3>
-                <div className="space-y-2 text-sm sm:text-base">
-                  <p><span className="font-semibold">Name:</span> Shikha Kapur</p>
-                  <p><span className="font-semibold">Email:</span> shikha.kapur@gmail.com</p>
-                  <p><span className="font-semibold">Mobile:</span> 9811744587</p>
+                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">Principal Officer/Grievance Officer/Compliance Officer</h3>
+                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                  <p><span className="font-semibold text-gray-950">Name:</span> Shikha Kapur</p>
+                  <p><span className="font-semibold text-gray-950">Email:</span> shikha.kapur@gmail.com</p>
+                  <p><span className="font-semibold text-gray-950">Mobile:</span> 9811744587</p>
                 </div>
               </div>
 
               {/* SEBI Office Details */}
               <div className="mb-8">
-                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-800">SEBI Office Details</h3>
-                <div className="space-y-2 text-sm sm:text-base">
-                  <p><span className="font-semibold">Address:</span> SEBI Bhavan RKC, Bandra-Kurla Complex, Mumbai - 400051, Maharashtra, India</p>
+                <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 text-gray-950">SEBI Office Details</h3>
+                <div className="space-y-2 text-sm sm:text-base leading-relaxed text-gray-900">
+                  <p><span className="font-semibold text-gray-950">Address:</span> SEBI Bhavan RKC, Bandra-Kurla Complex, Mumbai - 400051, Maharashtra, India</p>
                   <p>
-                    <span className="font-semibold">SEBI Score:</span> 
+                    <span className="font-semibold text-gray-950">SEBI Score:</span> 
                     <a href="https://scores.sebi.gov.in/scores-home" 
                        className="text-blue-800 hover:text-blue-950 underline ml-1" 
                        target="_blank" 
@@ -218,7 +218,7 @@ export default function Page() {
                     </a>
                   </p>
                   <p>
-                    <span className="font-semibold">Smart ODR:</span> 
+                    <span className="font-semibold text-gray-950">Smart ODR:</span> 
                     <a href="https://smartodr.in/login" 
                        className="text-blue-800 hover:text-blue-950 underline ml-1" 
                        target="_blank" 
