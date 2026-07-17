@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut , RotateCw, Maximize2, Minimize2, FileText } from 'lucide-react';
 import Header from '@/Components/Header';
-import Footer from '@/Components/Footer';
+import Footer from '@/Components/FooterA11y';
 import { getInsightBySlug, getInsights, incrementViewCount } from '@/lib/insightsService';
 import { convertDriveLinkToEmbed } from '@/lib/slugUtils';
 import { getHeroImageUrl } from '@/lib/cloudinary';
@@ -70,7 +70,7 @@ export default function IndividualInsightPage() {
         
       } catch (err) {
         console.error('Error fetching insight:', err);
-        setError('Failed to load insight');
+        setError('Insight not available in the local preview.');
       } finally {
         setLoading(false);
       }

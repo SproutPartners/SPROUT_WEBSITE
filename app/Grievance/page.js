@@ -4,7 +4,7 @@ import Image from 'next/image'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Header from '@/Components/Header'
-import Footer from '@/Components/Footer'
+import Footer from '@/Components/FooterA11y'
 
 const Page = () => {
     const [formData, setFormData] = useState({
@@ -36,7 +36,8 @@ const Page = () => {
     <div className="relative w-full h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] xl:h-[60vh]  overflow-hidden">
                 <Image
                   src="/images/pic5.jpg" // make sure this path is correct
-                  alt="Background"
+                  alt=""
+                  aria-hidden="true"
                   fill
                   className="object-cover object-center z-0"
                   priority
@@ -341,7 +342,7 @@ const Page = () => {
             Clients can write to the research analyst at <span className="font-medium">shikhaa.kapur@gmail.com</span> if a response is not received within 10 business days of contacting the Client Servicing Team. A reply can be expected within 10 business days of approaching the research analyst.
           </li>
           <li>
-            In case you are not satisfied with our response you can lodge your grievance with SEBI at https://scores.sebi.gov.in/ or you may also write to any of the offices of SEBI. SCORES may be accessed thorough SCORES mobile application as well, same can be downloaded from below link: <a href=''>https://play.google.com/store/apps/details?id=com.ionicframework.sebi236330</a>  ODR Portal could be accessed, if unsatisfied with the response. Your attention is drawn to the SEBI circular no. SEBI/HO/OIAE/OIAE_IAD-1/P/CIR/2023/131 dated July 31, 2023, on “Online Resolution of Disputes in the Indian Securities Market”. A common Online Dispute Resolution Portal (“ODR Portal”) which harnesses conciliation and online arbitration for resolution of disputes arising in the Indian Securities Market has been established. ODR Portal can be accessed via the following link <a className='text-bold' href='https://smartodr.in/'>https://smartodr.in/</a>
+            In case you are not satisfied with our response you can lodge your grievance with SEBI at https://scores.sebi.gov.in/ or you may also write to any of the offices of SEBI. SCORES may be accessed thorough SCORES mobile application as well, same can be downloaded from below link: <a href="https://play.google.com/store/apps/details?id=com.ionicframework.sebi236330" target="_blank" rel="noopener noreferrer">https://play.google.com/store/apps/details?id=com.ionicframework.sebi236330</a> ODR Portal could be accessed, if unsatisfied with the response. Your attention is drawn to the SEBI circular no. SEBI/HO/OIAE/OIAE_IAD-1/P/CIR/2023/131 dated July 31, 2023, on “Online Resolution of Disputes in the Indian Securities Market”. A common Online Dispute Resolution Portal (“ODR Portal”) which harnesses conciliation and online arbitration for resolution of disputes arising in the Indian Securities Market has been established. ODR Portal can be accessed via the following link <a className='text-bold' href='https://smartodr.in/' target="_blank" rel="noopener noreferrer">https://smartodr.in/</a>
           </li>
         </ol>
     </div>

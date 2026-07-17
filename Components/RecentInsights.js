@@ -18,7 +18,12 @@ const RecentInsightCard = ({ insight }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
       {/* Image Section */}
-      <div className="relative w-full aspect-video bg-gray-100 cursor-pointer" onClick={handleReadMore}>
+      <button
+        type="button"
+        onClick={handleReadMore}
+        aria-label={`Read more about ${insight.title}`}
+        className="relative w-full aspect-video bg-gray-100 cursor-pointer text-left"
+      >
         <img
           src={insight.thumbnailUrl || insight.thumbnail}
           alt={insight.title}
@@ -28,14 +33,13 @@ const RecentInsightCard = ({ insight }) => {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-        
-        {/* Hover Overlay */}
+
         <div className="absolute inset-0 bg-blue-600/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="bg-white/90 text-blue-600 px-4 py-2 rounded-lg font-medium">
             Read More
           </div>
         </div>
-      </div>
+      </button>
       
       {/* Content Section */}
       <div className="p-6">
@@ -57,11 +61,17 @@ const RecentInsightCard = ({ insight }) => {
         </div>
         
         {/* Title */}
-        <h3 
+        <h3
           className="text-lg font-bold text-gray-900 mb-3 leading-tight line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors"
-          onClick={handleReadMore}
         >
-          {insight.title}
+          <button
+            type="button"
+            onClick={handleReadMore}
+            aria-label={`Read more about ${insight.title}`}
+            className="text-left"
+          >
+            {insight.title}
+          </button>
         </h3>
         
         {/* Subtitle */}
@@ -73,7 +83,9 @@ const RecentInsightCard = ({ insight }) => {
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           {/* Read More Button */}
           <button
+            type="button"
             onClick={handleReadMore}
+            aria-label={`Read more about ${insight.title}`}
             className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-5 py-2 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg text-sm"
           >
             Read More
@@ -137,7 +149,8 @@ const RecentInsights = () => {
         setInsights(processedInsights);
       } catch (err) {
         console.error('Error fetching insights:', err);
-        setError('Failed to load insights. Please try again later.');
+        setInsights([]);
+        setError(null);
       } finally {
         setLoading(false);
       }

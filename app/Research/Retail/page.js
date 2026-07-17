@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Header from '@/Components/Header'
-import Footer from '@/Components/Footer'
+import Footer from '@/Components/FooterA11y'
 import Image from 'next/image'
 import SampleReportSection from '@/Components/Samplereport'
 import SubscriptionSection from '@/Components/SubscriptionSection'
@@ -53,12 +53,14 @@ const page = () => {
   return (
   <>
     <Header/>
+    <main id="main-content" tabIndex={-1}>
 
     {/* Background Image and Content */}
     <div className="relative w-full h-[40vh] sm:h-[60vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
       <Image
         src="/images/pic5.jpg" 
-        alt="Background"
+        alt=""
+        aria-hidden="true"
         fill
         className="object-cover object-top z-0"
         priority
@@ -105,7 +107,8 @@ const page = () => {
           <li key={index} className="flex items-start text-gray-700 text-xl sm:text-2xl leading-relaxed">
             <img
               src="/images/LEAVESONLY2.png" // Replace with your actual image path
-              alt="bullet point"
+              alt=""
+              aria-hidden="true"
               className="w-6 h-8 mt-1 mr-3"
             />
             <span className="flex-1">
@@ -189,9 +192,9 @@ const page = () => {
 
     {/*Section 4 with Image and Text */}
     <div className="bg-white w-full min-h-screen py-16 px-6 sm:px-12 lg:px-24">
-          <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium mb-4">
+          <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium mb-4">
             Sprout Research Advantage
-          </h1>
+          </h2>
           <p className='text-center text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 mb-12    '>
           Our stock research service is tailored to empower retail investors with high-quality, accessible, and actionable insights. Here’s why it stands out:
           </p>
@@ -263,6 +266,7 @@ const page = () => {
 
     
 
+    </main>
     {/* Footer */}
     <Footer/>
 

@@ -3,17 +3,19 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/Components/Header'
-import Footer from '@/Components/Footer'
+import Footer from '@/Components/FooterA11y'
 
 const Page = () => {
   return (
     <>
     <Header />
+    <main id="main-content" tabIndex={-1}>
 
     <div className="relative w-full h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] xl:h-[60vh]  overflow-hidden">
           <Image
             src="/images/pic5.jpg" // make sure this path is correct
-            alt="Background"
+            alt=""
+            aria-hidden="true"
             fill
             className="object-cover object-center z-0"
             priority
@@ -52,9 +54,9 @@ const Page = () => {
   <div className="block md:hidden">
     {/* Heading */}
     <div className="text-center mb-8">
-      <h1 className="font-semibold text-2xl sm:text-3xl leading-tight text-gray-800">
+      <h2 className="font-semibold text-2xl sm:text-3xl leading-tight text-gray-800">
         Vision and Mission Statement for Investors
-      </h1>
+      </h2>
     </div>
 
     {/* Vision Card */}
@@ -115,9 +117,9 @@ const Page = () => {
   <div className="hidden md:grid grid-cols-2 gap-12 items-center">
     {/* Left Side - Heading */}
     <div>
-      <h1 className="font-semibold text-3xl lg:text-4xl text-gray-800 leading-tight">
+      <h2 className="font-semibold text-3xl lg:text-4xl text-gray-800 leading-tight">
         Vision and Mission Statement for Investors
-      </h1>
+      </h2>
     </div>
 
     {/* Right Side - Vision and Mission Cards */}
@@ -182,9 +184,9 @@ const Page = () => {
     <div className="space-y-8 px-4 sm:px-8 lg:px-12 mt-20">
       {/* Heading */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
           Details of business transacted by the Research Analyst with respect to the investors
-        </h1>
+        </h2>
       </div>
 
       {/* Grid of Steps */}
@@ -307,9 +309,9 @@ const Page = () => {
 <div className="space-y-8 px-4 sm:px-8 lg:px-12 mt-20">
   {/* Heading */}
   <div className="text-center">
-    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
       Details of services provided to investors (No indicative Timelines)
-    </h1>
+    </h2>
   </div>
   
   <div className="space-y-6">
@@ -404,9 +406,9 @@ const Page = () => {
 <div className="space-y-8 px-4 sm:px-8 lg:px-12 mt-20">
   {/* Heading */}
   <div className="text-center">
-    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
       Details of grievance redressal mechanism and how to access it
-    </h1>
+    </h2>
   </div>
 
   <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
@@ -501,9 +503,9 @@ const Page = () => {
 <div className="space-y-8 px-4 sm:px-8 lg:px-12 mt-20 mb-10">
   {/* Heading */}
   <div className="text-left">
-    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
       Expectations from the investors (Responsibilities of investors)
-    </h1>
+    </h2>
   </div>
 
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -680,6 +682,7 @@ const Page = () => {
   </div>
 </div>
     
+    </main>
     <Footer/>
 
   

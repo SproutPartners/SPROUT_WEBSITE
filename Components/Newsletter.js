@@ -107,7 +107,7 @@ const Newsletter = () => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full sm:w-auto px-6 py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === 'loading' ? 'Subscribing...' : 'Subscribe Now'}
           </button>

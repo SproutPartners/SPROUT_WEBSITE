@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Header from '@/Components/Header'
-import Footer from '@/Components/Footer'
+import Footer from '@/Components/FooterA11y'
 import Image from 'next/image';
 
 
@@ -51,12 +51,14 @@ const page = () => {
   return (
   <>
     <Header/>
+    <main id="main-content" tabIndex={-1}>
 
     {/* Background Image and Content */}
     <div className="relative w-full h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[70vh] xl:h-[70vh]  overflow-hidden">
       <Image
         src="/images/pic5.jpg" // make sure this path is correct
-        alt="Background"
+        alt=""
+        aria-hidden="true"
         fill
         className="object-cover object-center z-0"
         priority
@@ -126,6 +128,7 @@ const page = () => {
     {/*section 3  */}
     <section id="about" className="bg-gray-100 w-full py-16 lg:py-20">
       <div className="container max-w-7xl mx-auto px-4">
+        <h2 className="sr-only">Private Client Group research process highlights</h2>
         {/* Features Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
           {/* Feature 1 */}
@@ -183,9 +186,9 @@ const page = () => {
 
     {/*Section 4 with Image and Text */}
     <div className="bg-white w-full min-h-screen py-16 px-6 sm:px-12 lg:px-24">
-          <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium mb-16">
+          <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium mb-16">
             Sprout Research Advantage
-          </h1>
+          </h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {advantages.map((advantage) => (
@@ -300,14 +303,14 @@ const page = () => {
 
     {/* Section 8 Thematic Research Reports */}
     <div className="bg-white w-full min-h-screen py-16 px-6 sm:px-12 lg:px-24">
-    <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-12">
+    <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-12">
       Below are some sample illustrations of the Research
-    </h1>
+    </h2>
 
     <div className="flex flex-col ">
       {/* Report 1 */}
       <div className="bg-white p-6 rounded-lg border border-black shadow transition flex-col flex items-start space-x-6 min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">KEY MARITIME ANCILLARY PLAYER </h2>
           <p className="text-gray-600 text-sm">Unearthing the Depths…</p>
@@ -320,7 +323,7 @@ const page = () => {
 
       {/* Report 2 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px]  ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">A MICROFINANCE PLAYER</h2>
           <p className="text-gray-600 text-sm">Emerging Stronger from a Period of Stress…</p>
@@ -335,7 +338,7 @@ const page = () => {
 
       {/* Report 3 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-       <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+       <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">ELECTRIFYING INDIA</h2>
           <p className="text-gray-600 text-sm">Capitalizing on Transmission & Distribution Growth</p>
@@ -351,7 +354,7 @@ const page = () => {
 
       {/* Report 4 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-       <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+       <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">CASH FLOWS AT THE CORE</h2>
           <p className="text-gray-600 text-sm">Comfortable valuations for stable cashflows</p>
@@ -366,7 +369,7 @@ const page = () => {
 
       {/* Report 5 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="ttext-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">FINANCIAL SERVICES PLAYER</h2>
           <p className="text-gray-600 text-sm">Re-rating candidate post amalgamation</p>
@@ -380,7 +383,7 @@ const page = () => {
 
       {/* Report 6 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">A QUALITY CEMENT COMPANY</h2>
           <p className="text-gray-600 text-sm">Green in the grey…</p>
@@ -393,7 +396,7 @@ const page = () => {
 
       {/* Report 7 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">PREMIUM LUBRICANT PLAYER</h2>
           <p className="text-gray-600 text-sm">Strong and Stable Cash flows …</p>
@@ -406,7 +409,7 @@ const page = () => {
 
       {/* Report 8 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black  min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">THEMATIC IDEA</h2>
           <p className="text-gray-600 text-sm">Atomization of Clean Energy…</p>
@@ -421,7 +424,7 @@ const page = () => {
 
       {/* Report 9 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">LEADING BITUMEN AND LOGISTICS PLAYER</h2>
           <p className="text-gray-600 text-sm">Embarking on a Long Voyage…</p>
@@ -435,7 +438,7 @@ const page = () => {
 
       {/* Report 10 */}
       <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-        <img src="/images/HD.png" alt="Logo 1" className="h-15" />
+        <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
         <div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">A Regional Hospital Player</h2>
           <p className="text-gray-600 text-sm">Compelling Valuations amidst Expansion …</p>
@@ -447,7 +450,7 @@ const page = () => {
 
       {/* Report 11 */}
     <div className="bg-white p-6 rounded-lg shadow  transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-      <img src="/images/HD.png" alt="Logo 11" className="h-15" />
+      <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
       <div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">Likely Turnaround in Real Estate and Hospitality</h2>
         <p className="text-gray-600 text-sm">Land aggregator coming out of woods…</p>
@@ -461,7 +464,7 @@ const page = () => {
 
     {/* Report 12 */}
     <div className="bg-white p-6 rounded-lg shadow transition flex flex-col items-start space-x-6 border border-black min-h-[400px] ">
-      <img src="/images/HD.png" alt="Logo 12" className="h-15" />
+      <img src="/images/HD.png" alt="Sprout Research logo" className="h-15" />
       <div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">Chemical Player with visibility and turnaround</h2>
         <p className="text-gray-600 text-lg">Turns around with visibility in greenshoots…</p>
@@ -477,6 +480,7 @@ const page = () => {
       </div>
     </div>
 
+    </main>
     <Footer/>
 
   </>

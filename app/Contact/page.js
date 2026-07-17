@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import Header from '@/Components/Header';
-import Footer from '@/Components/Footer';
+import Footer from '@/Components/FooterA11y';
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -150,17 +150,20 @@ export default function Page() {
   return (
     <>
       <Header />
+      <main id="main-content" tabIndex={-1}>
       <div className="relative min-h-screen bg-amber-950">
         {/* Background Image */}
         <Image
           src="/images/pic5.jpg"
-          alt="Contact Us"  
+          alt=""
+          aria-hidden="true"
           fill
-          className="w-full h-full object-cover absolute inset-0 z-0"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
 
         {/* Overlay Section */}
-        <div className="relative z-10 flex items-center justify-center min-h-[120vh] px-4 py-12 sm:py-16">
+        <div className="relative z-10 flex min-h-[120vh] items-center justify-center px-4 py-12 sm:py-16">
+          <h1 className="sr-only">Contact Sprout Research</h1>
           <div className="bg-blue-200/50 backdrop-blur-md rounded-xl p-6 sm:p-8 md:flex md:flex-row flex-col w-full max-w-6xl shadow-2xl min-h-[100vh]">
 
             {/* Left Contact Info */}
@@ -233,19 +236,21 @@ export default function Page() {
 
               {/* Status Messages */}
               {status === 'success' && (
-                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-center">
+                <div role="status" aria-live="polite" className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-center">
                   ✅ {statusMessage}
                 </div>
               )}
 
               {status === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-center">
+                <div role="alert" aria-live="assertive" className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-center">
                   ❌ {statusMessage}
                 </div>
               )}
 
               {/* First Name */}
+              <label htmlFor="contact-first-name" className="sr-only">First name</label>
               <input
+                id="contact-first-name"
                 type="text"
                 placeholder="First Name *"
                 className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -257,7 +262,9 @@ export default function Page() {
               />
 
               {/* Email */}
+              <label htmlFor="contact-email" className="sr-only">Email address</label>
               <input
+                id="contact-email"
                 type="email"
                 placeholder="Email Address *"
                 className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -269,7 +276,9 @@ export default function Page() {
               />
 
               {/* Phone */}
+              <label htmlFor="contact-number" className="sr-only">Contact number</label>
               <input
+                id="contact-number"
                 type="tel"
                 placeholder="Contact Number *"
                 className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -281,8 +290,8 @@ export default function Page() {
               />
 
               {/* Checkboxes */}
-              <div className="space-y-2">
-                <p className="font-semibold text-gray-700">Select Your Queries: *</p>
+              <fieldset className="space-y-2">
+                <legend className="font-semibold text-gray-700">Select Your Queries: *</legend>
                 <label className="flex items-center space-x-2">
                   <input 
                     type="checkbox" 
@@ -327,10 +336,12 @@ export default function Page() {
                   />
                   <span>Other Queries</span>
                 </label>
-              </div>
+              </fieldset>
 
               {/* Optional Message */}
+              <label htmlFor="contact-message" className="sr-only">Your message</label>
               <textarea
+                id="contact-message"
                 placeholder="Your Message (Optional)"
                 rows={4}
                 className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -344,7 +355,7 @@ export default function Page() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full bg-blue-400 text-white py-3 rounded font-semibold hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-blue-700 text-white py-3 rounded font-semibold hover:bg-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading' ? 'Sending...' : 'Submit'}
               </button>
@@ -352,6 +363,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      </main>
       <Footer />
     </>
   );

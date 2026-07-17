@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Changed from 'next/router' to 'next/navigation'
 import Header from '@/Components/Header';
-import Footer from '@/Components/Footer';
+import Footer from '@/Components/FooterA11y';
 import { getInsights, incrementViewCount } from '@/lib/insightsService';
 import { getThumbnailUrl, getHeroImageUrl } from '@/lib/cloudinary';
 import Newsletter from '@/Components/Newsletter';
@@ -75,7 +75,9 @@ const InsightCard = ({ insight, onReadMore }) => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-gray-100">
             {/* Read More Button */}
             <button
+              type="button"
               onClick={handleReadMore}
+              aria-label={`Read more about ${insight.title}`}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm w-full sm:w-auto"
             >
               Read More
@@ -155,7 +157,9 @@ const InsightCard = ({ insight, onReadMore }) => {
           <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-auto">
             {/* Read More Button */}
             <button
+              type="button"
               onClick={handleReadMore}
+              aria-label={`Read more about ${insight.title}`}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 lg:px-8 py-2.5 lg:py-3 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 text-sm lg:text-base"
             >
               Read More
@@ -249,7 +253,8 @@ export default function InsightsPage() {
         setInsights(processedInsights);
       } catch (err) {
         console.error('Error fetching insights:', err);
-        setError('Failed to load insights. Please try again later.');
+        setInsights([]);
+        setError(null);
       } finally {
         setLoading(false);
       }
@@ -323,7 +328,8 @@ export default function InsightsPage() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <main>
+      <main id="main-content" tabIndex={-1}>
+        <h1 className="sr-only">Sprout Research Insights</h1>
         {/* Featured Hero Section - Latest Insight */}
         {!loading && insights.length > 0 && (
           <div className="relative bg-gradient-to-br from-purple-100 via-blue-50 to-cyan-100 overflow-hidden">
@@ -375,7 +381,9 @@ export default function InsightsPage() {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     {/* Read More Button */}
                     <button
+                      type="button"
                       onClick={() => handleFeaturedReadMore(insights[0])}
+                      aria-label={`Read more about ${insights[0].title}`}
                       className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
                     >
                       Read More
@@ -516,6 +524,7 @@ export default function InsightsPage() {
           {!loading && hasMoreInsights && (
             <div className="text-center mt-12">
               <button 
+                type="button"
                 onClick={handleLoadMore}
                 disabled={loadingMore}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 text-white px-10 py-4 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed"
@@ -545,7 +554,6 @@ export default function InsightsPage() {
           )}
         </div>
       </main>
-      
       <Footer />
     </div>
   );

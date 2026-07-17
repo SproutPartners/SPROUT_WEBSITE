@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import React from 'react';
 import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
+import Footer from "@/Components/FooterA11y";
 import Newsletter from "@/Components/Newsletter";
 import RecentInsights from "@/Components/RecentInsights";
 
@@ -22,12 +22,14 @@ export default function Home() {
     
     <>
       <Header />
+      <main id="main-content" tabIndex={-1}>
 
       {/* Section 1 */}
       <div className="relative w-full h-[80vh]">
   <Image
     src="/images/pic5.jpg"
-    alt="Background"
+    alt=""
+    aria-hidden="true"
     fill
     className="object-cover object-top"
   />
@@ -51,10 +53,12 @@ export default function Home() {
     </p>
     
 
-    <Link href='/Contact'>
-    <button className="bg-white text-black px-6 sm:px-8 py-2 font-semibold border border-black rounded-full transition-transform duration-300 hover:-translate-y-2">
+    <Link
+      href="/Contact"
+      aria-label="Enquire now on the contact page"
+      className="inline-block rounded-full border border-black bg-white px-6 py-2 font-semibold text-black transition-transform duration-300 hover:-translate-y-2 sm:px-8"
+    >
       Enquire Now
-    </button>
     </Link>
   </div>
 </div>
@@ -64,6 +68,7 @@ export default function Home() {
       {/* Mission & Philosophy Section - Insert between Section 1 and 2 */}
       <section className=" bg-gray-300 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10 bg-white py-16 max-w-screen">
+          <h2 className="sr-only">Our mission and philosophy</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-h-vh">
             
             {/* Left Side - Mission and Philosophy Cards */}
@@ -78,7 +83,8 @@ export default function Home() {
                   <div className="mb-2 mr-4">
                      <Image 
                       src="/images/LEAVESONLY.png" 
-                      alt="Mission Icon" 
+                      alt="" 
+                      aria-hidden="true"
                       width={32}
                       height={32}
                       className="object-contain"
@@ -86,9 +92,9 @@ export default function Home() {
                   </div>
                   
                   {/* Mission Content */}
-                  <h3 className="text-2xl lg:text-3xl font-bold text-blac mb-4 transition-colors duration-300">
+                  <h2 className="text-2xl lg:text-3xl font-bold text-black mb-4 transition-colors duration-300">
                     Our Mission
-                  </h3>
+                  </h2>
                   
                   </div>
                   <p className="text-black text-base lg:text-lg leading-relaxed transition-colors duration-300">
@@ -106,7 +112,8 @@ export default function Home() {
                   <div className="mb-2 mr-4">
                     <Image 
                       src="/images/LEAVESONLY.png" 
-                      alt="Mission Icon" 
+                      alt="" 
+                      aria-hidden="true"
                       width={32}
                       height={32}
                       className="object-contain"
@@ -114,9 +121,9 @@ export default function Home() {
                   </div>
                   
                   {/* Philosophy Content */}
-                  <h3 className="text-2xl lg:text-3xl font-bold text-black mb-4 transition-colors duration-300">
+                  <h2 className="text-2xl lg:text-3xl font-bold text-black mb-4 transition-colors duration-300">
                     Our Philosophy
-                  </h3>
+                  </h2>
                   </div>
                   
                   
@@ -150,7 +157,7 @@ export default function Home() {
                   {/* If no image available, use this placeholder */}
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
                     <div className="text-center text-white">
-                      <svg className="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg aria-hidden="true" focusable="false" className="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                       </svg>
                       <p className="text-lg font-medium opacity-75">Your Image Here</p>
@@ -399,12 +406,12 @@ export default function Home() {
           Shikha’s commitment to governance and clarity empowers investors to navigate complex markets confidently.
         </p>
         
-      <Link href="">
-        <div className="flex justify-center lg:justify-start">
-          <button className="border-2 border-gray-300 rounded-full px-6 py-2 text-gray-700 font-semibold hover:bg-gray-100 transition-all duration-300">
-            Read More
-          </button>
-        </div>
+      <Link
+        href="/about/our-team"
+        aria-label="Read more about the Sprout Research team"
+        className="inline-flex justify-center rounded-full border-2 border-gray-300 px-6 py-2 font-semibold text-gray-700 transition-all duration-300 hover:bg-gray-100 lg:justify-start"
+      >
+        Read More
       </Link>
       </div>
 
@@ -466,6 +473,9 @@ export default function Home() {
                   <div className="flex justify-center mb-8">
                     <button
                         onClick={handleToggle}
+                        type="button"
+                        aria-label="Toggle between retail and private client services"
+                        aria-pressed={activeSection === 'institutional'}
                         className="relative flex items-center bg-blue-100 rounded-full p-1 shadow-inner cursor-pointer transition-all duration-300 ease-in-out w-90 h-12"
                       >
                         {/* Background for the active toggle */}
@@ -504,16 +514,17 @@ export default function Home() {
                           Our research is designed to bridge the gap between complex financial analysis and the needs of retail investors. We focus on high-growth opportunities across various market capitalizations, from small-cap gems to established large-cap stocks
                         </p>
                         <ul className="list-disc list-inside text-gray-600 space-y-2">
-                          <li><a className="font-bold">Robust Fundamental and Forensic Analysis</a> for informed decision-making</li>
-                          <li><a className="font-bold">Independent and Unbiased Research</a> for objective and trustworthy analysis</li>
-                          <li><a className="font-bold">Practical stock ideas for Active investors</a> with Short to short- to medium-term focus</li>
-                          <li><a className="font-bold">Clear, Actionable Insights</a> that are easy to understand</li>
-                          
-                          <li><a className="font-bold">Affordable subscription pricing:</a> </li>
-                          <ul className="list-decimal pl-12 list-inside text-gray-600 space-y-2">
-                              <li>Half-yearly : INR 15,000/-</li>
-                              <li>Annual : INR 25,000/-</li>
-                            </ul>
+                          <li><span className="font-bold">Robust Fundamental and Forensic Analysis</span> for informed decision-making</li>
+                          <li><span className="font-bold">Independent and Unbiased Research</span> for objective and trustworthy analysis</li>
+                          <li><span className="font-bold">Practical stock ideas for Active investors</span> with short- to medium-term focus</li>
+                          <li><span className="font-bold">Clear, Actionable Insights</span> that are easy to understand</li>
+                          <li>
+                            <span className="font-bold">Affordable subscription pricing:</span>
+                            <ol className="list-decimal list-inside pl-6">
+                              <li>Half-yearly: INR 15,000/-</li>
+                              <li>Annual: INR 25,000/-</li>
+                            </ol>
+                          </li>
                         </ul>
                         <p className="text-gray-600 leading-relaxed italic mt-4">
                          Tailored for young, emerging, and cost-conscious investors, our affordable subscription plans deliver professional-grade research, empowering beginners to confidently invest in the stock market without breaking the bank.
@@ -521,7 +532,8 @@ export default function Home() {
                         {/* Button for Retail Section */}
                         <div className="mt-6 text-center">
                           <a
-                            href="/Research/Retail" // Placeholder link
+                            href="/Research/Retail"
+                            aria-label="Know more about Sprout Research Retail"
                             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out shadow-md hover:shadow-lg"
                           >
                             Know More 
@@ -545,7 +557,8 @@ export default function Home() {
                         {/* Button for Institutional Section */}
                         <div className="mt-10 text-center">
                           <a
-                            href="/Research/Pcg" // Placeholder link
+                            href="/Research/Pcg"
+                            aria-label="Know more about Sprout Research Private Client Group"
                             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out shadow-md hover:shadow-lg"
                           >
                            Know More
@@ -619,7 +632,7 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="font-semibold text-gray-700">Validity:</span>
-                  <span className="text-green-600 ml-2 font-semibold">Perpetual</span>
+                  <span className="text-green-700 ml-2 font-semibold">Perpetual</span>
                 </div>
               </div>
             </div>
@@ -711,6 +724,7 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </>
   );

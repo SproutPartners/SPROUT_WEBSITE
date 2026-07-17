@@ -1,189 +1,194 @@
-'use client'
+'use client';
 
-import React, { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const serviceLinks = [
+  { href: '/Research/Retail', label: 'Retail' },
+  { href: '/Research/Pcg', label: 'Private Clients (PCG)' },
+];
+
+const baseLinkClass = 'group relative inline-flex items-center text-black hover:text-black';
 
 const Header = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
+  const isServicesActive = pathname.startsWith('/Research');
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setAboutDropdownOpen(false);
-        setServicesDropdownOpen(false);
+        setServicesOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setServicesOpen(false);
+        setMenuOpen(false);
+        setMobileServicesOpen(false);
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, []);
 
-  const isAboutActive = pathname.startsWith('/about');
+  const closeMenus = () => {
+    setServicesOpen(false);
+    setMenuOpen(false);
+    setMobileServicesOpen(false);
+  };
 
   return (
-    <header className="bg-white text-white p-4">
-      <nav className="container mx-auto flex justify-between items-center h-16">
-        {/* Logo */}
-        <Link href="/">
-        <div className="flex items-center ml-10 mb-1 space-x-3">
-          <Image src="/images/HD.png" alt="Logo" width={176} height={96} className="h-16 w-42" />
-        </div>
+    <header className="bg-white p-4 text-black" role="banner">
+      <nav aria-label="Primary navigation" className="container mx-auto flex h-16 items-center justify-between">
+        <Link
+          href="/"
+          aria-label="Sprout Research home"
+          className="ml-4 flex items-center space-x-3 md:ml-10"
+          onClick={closeMenus}
+        >
+          <Image src="/images/HD.png" alt="Sprout Research logo" width={176} height={96} className="h-16 w-auto" />
         </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 mr-10 text-xl font-medium">
+        <ul className="mr-10 hidden items-center space-x-8 text-xl font-medium md:flex">
           <li>
-            <Link
-              href="/"
-              className={`relative group ${pathname === '/' ? 'text-black' : 'text-black'}`}
-            >
+            <Link href="/" className={`${baseLinkClass} ${pathname === '/' ? 'font-semibold' : ''}`}>
               About Us
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </Link>
           </li>
 
-          {/* Research Service Dropdown */}
           <li className="relative" ref={dropdownRef}>
             <button
-              onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-              className={`relative group flex items-center ${isAboutActive ? 'text-black' : 'text-black'}`}
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={servicesOpen}
+              aria-controls="desktop-services-menu"
+              onClick={() => setServicesOpen((current) => !current)}
+              className={`${baseLinkClass} ${isServicesActive ? 'font-semibold' : ''}`}
             >
               Services
               <svg
-                className={`ml-1 w-4 h-4 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''}`}
+                aria-hidden="true"
+                focusable="false"
+                className={`ml-1 h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${isAboutActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  isServicesActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </button>
 
-            {/* Desktop Dropdown Menu - Our Services with nested dropdown */}
-            {aboutDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+            {servicesOpen && (
+              <div
+                id="desktop-services-menu"
+                className="absolute left-0 top-full z-50 mt-2 w-64 rounded-md border border-gray-200 bg-white shadow-lg"
+              >
                 <div className="py-2">
-                  <div className="relative">
+                  {serviceLinks.map((link) => (
                     <Link
-                      href="/Research/Retail"
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black transition-colors duration-200 flex items-center justify-between"
-                      onMouseEnter={() => setServicesDropdownOpen(true)}
-                      onMouseLeave={() => setServicesDropdownOpen(false)}
-                      onClick={() => {
-                        setAboutDropdownOpen(false);
-                        setServicesDropdownOpen(false);
-                      }}
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMenus}
+                      className="block px-4 py-2 text-sm text-gray-800 transition-colors duration-200 hover:bg-gray-100 hover:text-black"
                     >
-                      Retail
-                      
+                      {link.label}
                     </Link>
-                     </div>
+                  ))}
                 </div>
-                <div className="py-2">
-                  <div className="relative">
-                    <Link
-                      href="/Research/Pcg"
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black transition-colors duration-200 flex items-center justify-between"
-                      onMouseEnter={() => setServicesDropdownOpen(true)}
-                      onMouseLeave={() => setServicesDropdownOpen(false)}
-                      onClick={() => {
-                        setAboutDropdownOpen(false);
-                        setServicesDropdownOpen(false);
-                      }}
-                    >
-                     Private Clients (PCG)
-                      
-                    </Link>
-                     </div>
-                </div>
-                 
               </div>
             )}
           </li>
 
-          {/* Insights Link */}
           <li>
-            <Link
-              href="/Insights"
-              className={`relative group ${pathname === '/Insights' ? 'text-black' : 'text-black'}`}
-            >
+            <Link href="/Insights" className={`${baseLinkClass} ${pathname === '/Insights' ? 'font-semibold' : ''}`}>
               Insights
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${pathname === '/Insights' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  pathname === '/Insights' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </Link>
           </li>
 
           <li>
-            <Link
-              href="/pricing"
-              className={`relative group ${pathname === '/Insights' ? 'text-black' : 'text-black'}`}
-            >
+            <Link href="/pricing" className={`${baseLinkClass} ${pathname === '/pricing' ? 'font-semibold' : ''}`}>
               Pricing
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${pathname === '/pricing' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  pathname === '/pricing' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </Link>
           </li>
-          
 
-          {/* Contact Link */}
           <li>
-            <Link
-              href="/Contact"
-              className={`relative group ${pathname === '/Contact' ? 'text-black' : 'text-black'}`}
-            >
+            <Link href="/Contact" className={`${baseLinkClass} ${pathname === '/Contact' ? 'font-semibold' : ''}`}>
               Contact Us
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${pathname === '/Contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  pathname === '/Contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </Link>
           </li>
 
-          {/* Login Link */}
           <li>
-            <Link
-              href="/login"
-              className={`relative group ${pathname === '/login' ? 'text-black' : 'text-black'}`}
-            >
+            <Link href="/login" className={`${baseLinkClass} ${pathname === '/login' ? 'font-semibold' : ''}`}>
               Log In
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                ${pathname === '/login' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                aria-hidden="true"
+                className={`absolute -bottom-1 left-0 h-[2px] w-full origin-right bg-black transition-transform duration-300 ${
+                  pathname === '/login' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
               />
             </Link>
           </li>
         </ul>
 
-        {/* Mobile Menu Toggle Button */}
-        <div className="md:hidden pr-4">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="pr-4 md:hidden">
+          <button
+            type="button"
+            aria-label={menuOpen ? 'Close main menu' : 'Open main menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-main-menu"
+            onClick={() => setMenuOpen((current) => !current)}
+            className="inline-flex items-center justify-center rounded-md p-2 text-black"
+          >
             {menuOpen ? (
-              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg aria-hidden="true" focusable="false" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg aria-hidden="true" focusable="false" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -191,123 +196,72 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden px-6 pb-6 space-y-4 text-xl font-medium text-black">
-          {/* Mobile Home Link */}
+        <div id="mobile-main-menu" className="space-y-4 px-6 pb-6 text-xl font-medium text-black md:hidden">
           <div>
-            <Link href="/" onClick={() => setMenuOpen(false)}>
-              <div className="relative group">
-                About Us
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+            <Link href="/" onClick={closeMenus} className="inline-flex items-center">
+              About Us
             </Link>
           </div>
 
-          {/* Mobile About Dropdown */}
           <div>
             <button
-              onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-              className="w-full text-left flex items-center  gap-2"
+              type="button"
+              aria-expanded={mobileServicesOpen}
+              aria-controls="mobile-services-menu"
+              onClick={() => setMobileServicesOpen((current) => !current)}
+              className="flex w-full items-center gap-2 text-left"
             >
-              <div className="relative group ">
-                Services
-                <span
-                  className={`absolute bottom-0 left-0  w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname.startsWith('/about') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+              Services
               <svg
-                className={`w-4 h-4 transition-transform duration-200 ${mobileAboutOpen ? 'rotate-180' : ''}`}
+                aria-hidden="true"
+                focusable="false"
+                className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            
-            {/* Mobile Services Submenu */}
-            {mobileAboutOpen && (
-              <div className="mt-2 pl-4 space-y-2">
-                <Link 
-                  href="/Research/Pcg" 
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setMobileAboutOpen(false);
-                  }}
-                  className="block text-lg font-medium text-gray-700 hover:text-black transition-colors duration-200"
-                >
-                 PCG
-                </Link>
-                <Link 
-                  href="/Research/Retail" 
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setMobileAboutOpen(false);
-                  }}
-                  className="block text-lg font-medium text-gray-700 hover:text-black transition-colors duration-200"
-                >
-                 Retail
-                </Link>
-                
+
+            {mobileServicesOpen && (
+              <div id="mobile-services-menu" className="mt-2 space-y-2 pl-4">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeMenus}
+                    className="block text-lg font-medium text-gray-800 transition-colors duration-200 hover:text-black"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
 
-          {/* Research */}
-        
-          {/* Insights Link */}
           <div>
-            <Link href="/Insights" onClick={() => setMenuOpen(false)}>
-              <div className="relative group">
-                Insights
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname === '/Insights' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+            <Link href="/Insights" onClick={closeMenus} className="inline-flex items-center">
+              Insights
             </Link>
           </div>
 
-          {/* Product Pricing Link */}
           <div>
-            <Link href="/pricing" onClick={() => setMenuOpen(false)}>
-              <div className="relative group">
-                Pricing
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname === '/pricing' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+            <Link href="/pricing" onClick={closeMenus} className="inline-flex items-center">
+              Pricing
             </Link>
           </div>
 
-          {/* Contact Link */}
           <div>
-            <Link href="/Contact" onClick={() => setMenuOpen(false)}>
-              <div className="relative group">
-                Contact Us
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname === '/Contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+            <Link href="/Contact" onClick={closeMenus} className="inline-flex items-center">
+              Contact Us
             </Link>
           </div>
-          {/* Login Link */}
+
           <div>
-            <Link href="/login" onClick={() => setMenuOpen(false)}>
-              <div className="relative group">
-                Log In
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[2px] bg-black origin-right transition-transform duration-300 
-                  ${pathname === '/login' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                />
-              </div>
+            <Link href="/login" onClick={closeMenus} className="inline-flex items-center">
+              Log In
             </Link>
           </div>
         </div>

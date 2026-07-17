@@ -1,1 +1,82 @@
 @import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #101828;
+  --text-muted: #475467;
+  --text-subtle: #344054;
+  --focus-ring: #0f62fe;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+[class~='text-gray-400'] {
+  color: #667085 !important;
+}
+
+[class~='text-gray-500'] {
+  color: #475467 !important;
+}
+
+[class~='text-gray-600'] {
+  color: #344054 !important;
+}
+
+[class~='text-blue-400'] {
+  color: #1d4ed8 !important;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 1000;
+  background: #ffffff;
+  color: #101828;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.18);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

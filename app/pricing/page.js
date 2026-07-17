@@ -1,4 +1,4 @@
-import Footer from '@/Components/Footer';
+import Footer from '@/Components/FooterA11y';
 import Header from '@/Components/Header';
 import SubscriptionCards from '@/Components/SubscriptionCards';
 import Image from 'next/image';
@@ -7,13 +7,14 @@ export default function ProcutPricing() {
   return (
     <>
     <Header />
-    
+    <main id="main-content" tabIndex={-1}>
     <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <div className="relative w-full h-[20vh] sm:h-[20vh] md:h-[20vh] lg:h-[40vh] overflow-hidden">
                   <Image
                     src="/images/pic5.jpg" // make sure this path is correct
-                    alt="Background"
+                    alt=""
+                    aria-hidden="true"
                     fill
                     className="object-cover object-top z-0"
                     priority
@@ -109,9 +110,9 @@ export default function ProcutPricing() {
 
                                                     {/* Content */}
                                                     <div className="relative flex-1">
-                                                      <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                                                         Annual Plan
-                                                      </h4>
+                                                      </h3>
                                                       <p className="text-xl font-bold text-blue-600 mb-3">
                                                         INR 25,000/-
                                                       </p>
@@ -131,9 +132,9 @@ export default function ProcutPricing() {
 
                                                     {/* Content */}
                                                     <div className="relative flex-1">
-                                                      <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                                                         Half Yearly Plan
-                                                      </h4>
+                                                      </h3>
                                                       <p className="text-xl font-bold text-blue-600 mb-3">
                                                         INR 15,000/-
                                                       </p>
@@ -172,6 +173,7 @@ export default function ProcutPricing() {
         </div>
     </div>
 
+    </main>
     <Footer />
     </>
   );

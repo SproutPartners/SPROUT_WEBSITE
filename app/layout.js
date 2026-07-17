@@ -1,19 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import './globals.css';
 import { UserAuthProvider } from '@/contexts/UserAuthContext';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import PageTitleUpdater from '@/Components/PageTitleUpdater';
 
 export const metadata = {
-  title: "Sprout Research",
+  title: 'Sprout Research',
+  description:
+    'Independent quality stock research with fundamental analysis, forensic scrutiny, and risk-focused investment insights.',
   icons: {
     icon: '/favicon.png',
   },
@@ -23,11 +15,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <UserAuthProvider>
-          <UserAuthProvider>
-            {children}
-          </UserAuthProvider>
+          <PageTitleUpdater />
+          {children}
         </UserAuthProvider>
       </body>
     </html>
