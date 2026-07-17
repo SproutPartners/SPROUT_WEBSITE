@@ -115,7 +115,7 @@ const Header = () => {
                       key={link.href}
                       href={link.href}
                       onClick={closeMenus}
-                      className="block px-4 py-2 text-sm text-gray-800 transition-colors duration-200 hover:bg-gray-100 hover:text-black"
+                      className="block px-4 py-2 text-base font-medium text-black transition-colors duration-200 hover:bg-gray-100 hover:text-black"
                     >
                       {link.label}
                     </Link>
@@ -232,7 +232,7 @@ const Header = () => {
                     key={link.href}
                     href={link.href}
                     onClick={closeMenus}
-                    className="block text-lg font-medium text-gray-800 transition-colors duration-200 hover:text-black"
+                    className="block text-lg font-medium text-black transition-colors duration-200 hover:text-black"
                   >
                     {link.label}
                   </Link>
